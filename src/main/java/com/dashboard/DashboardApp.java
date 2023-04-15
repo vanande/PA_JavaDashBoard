@@ -47,6 +47,11 @@ public class DashboardApp extends Application {
             stackPane.getChildren().add(backButton);
             StackPane.setAlignment(backButton, Pos.BOTTOM_RIGHT);
         });
+
+        button2.setOnAction(event -> {
+            Stage squareStage = new Stage();
+
+        });
     }
 
     public static void main(String[] args) {
