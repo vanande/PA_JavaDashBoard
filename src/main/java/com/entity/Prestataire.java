@@ -1,15 +1,17 @@
-package com.stats;
+package com.entity;
 
-public class NbPrestaParPrestataire {
+public class Prestataire {
 
         private String nomPrestataire;
+        private String metierPrestataire;
         private int nombreEngagements;
         private int totalPrixPaye;
 
-        public NbPrestaParPrestataire(String nomPrestataire, int nombreEngagements, int totalPrixPaye) {
+        public Prestataire(String nomPrestataire, int nombreEngagements, int totalPrixPaye, String metierPrestataire) {
             this.nomPrestataire = nomPrestataire;
             this.nombreEngagements = nombreEngagements;
             this.totalPrixPaye = totalPrixPaye;
+            this.metierPrestataire = metierPrestataire;
         }
 
         public String getNomPrestataire() {
@@ -22,5 +24,9 @@ public class NbPrestaParPrestataire {
 
         public String getTotalPrixPaye() {
             return String.valueOf(totalPrixPaye);
+        }
+
+        public String getMetierPrestataire() {
+            return metierPrestataire;
         }
 }

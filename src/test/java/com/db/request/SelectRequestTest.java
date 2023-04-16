@@ -9,7 +9,7 @@ public class SelectRequestTest {
         String[] columns = {"name", "id"};
 
         try {
-            ResultSet resultSet = SelectRequest.select("users", columns);
+            ResultSet resultSet = SelectRequest.select("Prestataire", columns);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int id = resultSet.getInt("id");
