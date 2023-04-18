@@ -14,10 +14,6 @@ public class DatabaseConnection {
     private static Connection connection;
 
     public static Connection getConnection() throws SQLException {
-        System.out.println("Maiv");
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(System.getProperty("user.dir"));
-
         if (connection == null) {
             try {
                 Properties prop = readSettings();

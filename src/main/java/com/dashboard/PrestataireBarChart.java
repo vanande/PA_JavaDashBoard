@@ -1,6 +1,6 @@
 package com.dashboard;
 
-import com.db.stats.Prestataire;
+import com.entity.Prestataire;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;

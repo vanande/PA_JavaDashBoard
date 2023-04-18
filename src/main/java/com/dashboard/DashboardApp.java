@@ -1,8 +1,11 @@
 package com.dashboard;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -16,7 +19,7 @@ public class DashboardApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Button button1 = new Button("Button 1");
-        Button button2 = new Button("Button 2");
+        Button button2 = new Button("Pie Chart");
         Button button3 = new Button("Button 3");
         Button button4 = new Button("Button 4");
 
@@ -49,7 +52,41 @@ public class DashboardApp extends Application {
         });
 
         button2.setOnAction(event -> {
-            Stage squareStage = new Stage();
+            // Create a new window
+            Stage pieChartStage = new Stage();
+            pieChartStage.setTitle("Pie Chart Window");
+            pieChartStage.initModality(Modality.APPLICATION_MODAL);
+            StackPane stackPane = new StackPane();
+
+
+            // Create a pie chart
+            ObservableList<PieChart.Data> pieChartData =
+                    FXCollections.observableArrayList(
+                            new PieChart.Data("Activités", 80),
+                            new PieChart.Data("Prestataire", 19),
+                            new PieChart.Data("Autre", 1)
+                    );
+            PieChart pieChart = new PieChart(pieChartData);
+            pieChart.setTitle("Répartition des activités");
+
+            // Set the colors of the pie chart
+            pieChartData.get(0).getNode().setStyle("-fx-pie-color: green;");
+            pieChartData.get(1).getNode().setStyle("-fx-pie-color: blue;");
+            pieChartData.get(2).getNode().setStyle("-fx-pie-color: red;");
+
+            // Create a back button to return to the previous window
+            Button backButton = new Button("Back");
+            backButton.setOnAction(backEvent -> pieChartStage.close());
+
+            // Add the pie chart and the back button to a new stack pane
+            StackPane pieChartPane = new StackPane();
+            pieChartPane.getChildren().addAll(pieChart, backButton);
+            StackPane.setAlignment(backButton, Pos.BOTTOM_RIGHT);
+
+            // Add the stack pane to the scene and display the scene
+            Scene pieChartScene = new Scene(pieChartPane, 500, 500);
+            pieChartStage.setScene(pieChartScene);
+            pieChartStage.show();
 
         });
     }
