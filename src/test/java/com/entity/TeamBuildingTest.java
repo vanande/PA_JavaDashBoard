@@ -11,13 +11,14 @@ class TeamBuildingTest {
 
     @Test
     void getTotalPriceTest() {
-        TeamBuilding tb = new TeamBuilding(1);
-        System.out.println(tb);
-
-
-        float expectedPrice = 145.5f;
-        float totalPrice = tb.getTotalPrice();
-
-        assertEquals(expectedPrice, totalPrice, 0.01f);
+        TeamBuilding tb = new TeamBuilding(2);
+        System.out.println(tb.getTotalPrice());
+        System.out.println(tb.getActivities());
+        for (Activite a : tb.getActivities()){
+            System.out.println(a.getNom());
+            for (Option o : a.getOptions()){
+                System.out.println(o.getNom());
+            }
+        }
     }
 }

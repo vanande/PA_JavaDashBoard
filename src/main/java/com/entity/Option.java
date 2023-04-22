@@ -1,22 +1,13 @@
 package com.entity;
 
 public class Option {
-    private int id;
     private String nom;
     private float prix;
 
-    public Option(int id, String nom, float prix) {
-        this.id = id;
+
+    public Option(String nom, float prix) {
         this.nom = nom;
         this.prix = prix;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNom() {

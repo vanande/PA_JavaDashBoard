@@ -29,8 +29,8 @@ public class Prestataire {
         String query = "SELECT p.nom,p.metier, COUNT(*) AS nombre_engagements, SUM(tb.prix_total) AS total_prix_paye " +
                 "FROM prestataire p " +
                 "JOIN engage e ON e.idPRESTATAIRE = p.idPRESTATAIRE " +
-                "JOIN teambuilding_activite tb ON e.idTEAM_BUILDING = tb.TEAM_BUILDING_idTEAM_BUILDING " +
-                "GROUP BY p.idPRESTATAIRE";
+                "JOIN teambuilding_activite tb ON e.idTEAM_BUILDING = tb.idTEAM_BUILDING " +
+                "GROUP BY p.idPRESTATAIRE ";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);

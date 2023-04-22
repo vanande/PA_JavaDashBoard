@@ -1,5 +1,6 @@
 package com.dashboard;
 
+import com.entity.TeamBuilding;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ public class DashboardApp extends Application {
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(10);
 
+
         Scene scene = new Scene(vbox, 320, 240);
         primaryStage.setTitle("Vertical Buttons");
         primaryStage.setScene(scene);
@@ -52,11 +54,19 @@ public class DashboardApp extends Application {
         });
 
         button2.setOnAction(event -> {
+            int tb_id = 1;
+
             // Create a new window
             Stage pieChartStage = new Stage();
             pieChartStage.setTitle("Pie Chart Window");
             pieChartStage.initModality(Modality.APPLICATION_MODAL);
             StackPane stackPane = new StackPane();
+
+            // Do the math
+            TeamBuilding tb = new TeamBuilding(tb_id);
+            int totalPrice = tb.getTotalPrice();
+            System.out.println(totalPrice);
+
 
 
             // Create a pie chart
