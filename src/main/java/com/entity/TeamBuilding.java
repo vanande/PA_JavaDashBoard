@@ -46,12 +46,13 @@ public class TeamBuilding {
 
             this.totalPrice = 0;
             for (Activite a : activities){
+                System.out.println("Teambuilding id : " + this.id + " \nActivite : " + a.getNom() + " \nPrix : " + a.getPrix());
                 for (Option o : a.getOptions()){
-                    System.out.println(o.getPrix() + o.getNom());
                     this.totalPrice += o.getPrix();
+                    System.out.println("Option : " + o.getNom() + " Prix : " + o.getPrix());
                 }
-                System.out.println(a.getPrix() + a.getNom());
                 this.totalPrice += a.getPrix();
+                System.out.println("Prix total : " + this.totalPrice);
             }
 
         } catch (SQLException e) {
