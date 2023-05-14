@@ -25,7 +25,8 @@ public class Materiel {
         String query = "SELECT m.nom, COUNT(*) AS nombre_locations " +
                 "FROM materiel m " +
                 "JOIN loue l ON l.idMATERIEL = m.idMATERIEL " +
-                "GROUP BY m.idMATERIEL";
+                "GROUP BY m.idMATERIEL " +
+                "ORDER BY nombre_locations DESC;";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
